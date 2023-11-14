@@ -5,35 +5,44 @@ import Link from "next/link";
 const Navbar = () => {
   const { isSignedIn, user } = useUser();
   return (
-    <nav className="md:max-2xl flex w-full  pt-3">
-      <Link href="/">
-        <span className="px-7 text-3xl">Logo</span>
-      </Link>
-      <span className="flex-grow"></span>
-      <SearchBar />
-      <span className="flex-grow"></span>
-      {isSignedIn && (
-        <div className="text-bold item-center flex justify-center text-xl">
-          <div className="flex flex-col items-center pr-3">
-            <Link href="/user-profile">
-              <img className="h-14 w-14 rounded-full" src={user.imageUrl} />
-            </Link>
-            <span className="mr-2 text-sm">{user.firstName}</span>
+    <nav className="flex w-full justify-center border-b-2 border-dotted border-b-green-500 pt-3">
+      <div className=" flex justify-center gap-3 md:max-w-6xl">
+        <Link href="/" className="my-auto">
+          <span className=" px-7 text-3xl">Logo</span>
+        </Link>
+        <span className="flex-grow"></span>
+        <SearchBar />
+        <button
+          type="button"
+          className="my-4 rounded-lg border border-green-700 px-3 py-1 text-center text-sm font-medium text-green-700 hover:bg-green-800 hover:text-white focus:outline-none focus:ring-4 focus:ring-green-300 dark:border-green-500 dark:text-green-500 dark:hover:bg-green-600 dark:hover:text-white dark:focus:ring-green-800"
+        >
+          Create
+        </button>
+
+        <span className="flex-grow"></span>
+        {isSignedIn && (
+          <div className="text-bold item-center flex justify-center text-xl">
+            <div className="flex flex-col items-center pr-3">
+              <Link href="/user-profile">
+                <img className="h-14 w-14 rounded-full" src={user.imageUrl} />
+              </Link>
+              <span className="mr-2 text-sm">./{user.username}</span>
+            </div>
+            <SignOutButton />
           </div>
-          <SignOutButton />
-        </div>
-      )}
-      {!isSignedIn && <SignInButton />}
+        )}
+        {!isSignedIn && <SignInButton />}
+      </div>
     </nav>
   );
 };
 
 const SearchBar = () => {
   return (
-    <form className="w-full md:w-[1000px] ">
+    <form className="my-auto w-full md:w-[685px]">
       <label
         htmlFor="default-search"
-        className="sr-only mb-2 text-sm font-medium text-green-900 dark:text-white"
+        className="sr-only mb-2 text-sm font-medium text-green-500 dark:text-white"
       >
         Search
       </label>
@@ -48,9 +57,9 @@ const SearchBar = () => {
           >
             <path
               stroke="currentColor"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
               d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
             />
           </svg>
