@@ -13,8 +13,8 @@ const inter = Inter({
 });
 
 export const metadata = {
-  title: "Web Dev Nepali Blog",
-  description: "Blog app made by web dev nepal",
+  title: "Blogging App ",
+  description: "Blog app made by Saurab Poudel",
   icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
 
